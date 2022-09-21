@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap')
+
+@keyframes todo-creator__button
+    100%
+        transform: translateY(50%) scale(1)
+
+body
+    padding: 0
+    margin: 50px 15px
+    background-color: #fafafa
+
+    @media (max-width: 480px)
+        row-gap: 0
+        margin: 0
+
+.app-body
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    row-gap: 20px
+    max-width: 450px
+    margin: auto
+
+    @media (max-width: 480px)
+        row-gap: 0
+        width: 100%
+
+.todo-list
+    box-sizing: border-box
+    width: 100%
+    background-color: #ffffff
+    box-shadow: 0px 0px 10px 0px rgba(179, 179, 179, 0.4)
+    padding: 20px
+    border-radius: 5px
+
+    @media (max-width: 480px)
+        border-radius: 0
+
+.todo-item
+    border: 1px solid #e7e7e7
+    display: flex
+    align-items: center
+    padding: 15px 10px
+    margin-bottom: 10px
+    border-radius: 5px
+    font-family: 'Poppins', sans-serif
+    box-sizing: border-box
+    height: 57px
+    box-sizing: border-box
+    width: 100%
+
+.todo-item__trash
+    color: #acaaaa
+    cursor: pointer
+
+    &:hover
+        color: #000
+
+.todo-item__title
+    width: calc( 100% - 70px )
+    overflow: hidden
+    text-overflow: ellipsis
+
+.todo-filter
+    display: flex
+    align-items: center
+    justify-content: space-between
+    column-gap: 8px
+    color: #acaaaa
+
+    input
+        display: none
+
+    label
+        font-size: 16px
+        cursor: pointer
+        transition: color 0.2s
+
+    @media (max-width: 240px)
+        display: none
+
+#todo-filter__all
+
+    &:checked ~ #todo-filter__all_label
+        color: #000
+
+#todo-filter__all_label
+    font-size: 18px
+
+#todo-filter__done
+
+    &:checked ~ #todo-filter__done_label
+        color: #000
+
+#todo-filter__done_label
+    font-size: 18px
+
+#todo-filter__wait
+
+    &:checked ~ #todo-filter__wait_label
+        color: #000
+
+.todo-control
+    box-sizing: border-box
+    display: flex
+    background-color: #ffffff
+    justify-content: space-between
+    align-items: center
+    padding: 20px
+    box-shadow: 0px 0px 10px 0px rgba(179, 179, 179, 0.4)
+    border-radius: 5px
+    width: 100%
+    position: relative
+
+    @media (max-width: 480px)
+        border-radius: 0
+
+.todo-item:last-of-type
+    margin-bottom: 0
+
+.todo-item__title
+    margin: 0 auto 0 15px
+
+.todo-creator__text
+    border-radius: 5px
+    height: 22px
+    border: none
+    background-color: #ffffff
+    box-shadow: inset 0px 0px 10px 0px rgba(179, 179, 179, 0.2)
+    padding: 5px 8px
+    width: 180px
+
+    &:focus
+        outline: none
+
+    @media (max-width: 330px)
+        width: 120px
+
+    @media (max-width: 240px)
+        box-sizing: border-box
+        width: 100%
+        height: 32px
+
+.todo-creator__button
+    background-color: #63ca59
+    position: absolute
+    width: 40px
+    height: 40px
+    border-radius: 50%
+    border: none
+    bottom: 0
+    left: 0
+    right: 0
+    margin: 0 auto
+    transform: translateY(50%) scale(0)
+    color: #ffffff
+    font-size: 20px
+    cursor: pointer
+    animation-name: todo-creator__button
+    animation-duration: 0.3s
+    animation-fill-mode: both
+
+    &:hover
+        background-color: #31c424
+
+.todo-item__complete-control
+    padding-right: 8px
+    border-right: 1px #e7e7e7 solid
+    height: 100%
+    display: flex
+    justify-content: center
+    align-items: center
+
+.todo-item__checkbox-inner
+    display: none
+
+    &:checked ~ .todo-item__checkbox-wrap::after
+        opacity: 1
+
+.todo-item__checkbox-wrap
+    display: block
+    border: 1px #e7e7e7 solid
+    width: 12px
+    height: 12px
+    position: relative
+    border-radius: 2px
+    cursor: pointer
+
+    &:hover
+        border: 1px #000000 solid
+
+    &::before
+        content: ''
+        display: block
+        width: 3px
+        height: 3px
+        border: 1px #ffffff solid
+        right: -1px
+        top: -1px
+        position: absolute
+
+    &::after
+        content: ''
+        display: block
+        width: 9px
+        height: 5px
+        border-bottom: 2px #63ca59 solid
+        border-left: 2px #63ca59 solid
+        position: absolute
+        transform: rotate(-50deg)
+        right: -1px
+        top: -1px
+        opacity: 0
+        transition: opacity 0.2s
